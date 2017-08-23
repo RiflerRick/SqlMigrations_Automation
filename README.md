@@ -14,4 +14,7 @@ In the production server it may be necessary to run sql statements separately. I
 
 #### Requirements
 
-Requirements are pretty much nothing. Right now this looks like another hook script that we have to build. Simply so that whenever the hook is triggered because of a push to the repo. The only catch this time is that we will be requiring the entire repo at the place where the script will run. Otherwise the concept of makemigrations won't even work. This would technically mean that the hook must be installed in the same place where the repo entirely is placed on production.  
+Requirements are pretty much nothing. Right now this looks like another hook script that we have to build. Simply so that whenever the hook is triggered because of a push to the repo. The only catch this time is that we will be requiring the entire repo at the place where the script will run. Otherwise the concept of makemigrations won't even work. This would technically mean that the hook must be installed in the same place where the repo entirely is placed on production. 
+
+Note: When using Django 1.11 the default database is always going to be sqlite however sqlite is a rather light database and for any big project the default choice of database would be mysql. In order to run mysql in Django we need to `pip install mysql-python`. 
+
