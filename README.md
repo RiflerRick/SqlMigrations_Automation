@@ -10,4 +10,8 @@ If we go inside the app folder we will find a folder called migrations that actu
 
 #### Objecttive
 
-In the production server it may be necessary to run sql statements separately. In order to achieve that all we would ideally need to do is to simply have one command and that command would validate for errors and generate all sql statements. This should ideally happen with just one command. 
+In the production server it may be necessary to run sql statements separately. In order to achieve that all we would ideally need to do is to simply have one command and that command would validate for errors and generate all sql statements. This should ideally happen with just one command. Our objective therefore as simple as it may seem is simply to write a script t automate this task so that it can be done in just one command.
+
+#### Requirements
+
+Requirements are pretty much nothing. Right now this looks like another hook script that we have to build. Simply so that whenever the hook is triggered because of a push to the repo. The only catch this time is that we will be requiring the entire repo at the place where the script will run. Otherwise the concept of makemigrations won't even work. This would technically mean that the hook must be installed in the same place where the repo entirely is placed on production.  
