@@ -18,3 +18,11 @@ Requirements are pretty much nothing. Right now this looks like another hook scr
 
 Note: When using Django 1.11 the default database is always going to be sqlite however sqlite is a rather light database and for any big project the default choice of database would be mysql. In order to run mysql in Django we need to `pip install mysql-python`. 
 
+There is a slight complication here, when a PR is sent(if we think of it from the PR point of view) the code is not pushed yet, so for us to be able to use django's makemigrations command we need to have the code pushed.
+
+Here is the solution to this problem. Django Sql migrations is a super powerful tool. We can think of sql migrations as a VCS and moreover as long as you have a python module(a directory with a `__init__.py` file in it) inside your django project containing a models.py file and apps.py file containing a configuration class and also the directory name is listed in installed apps in `settings.py`, sql migrations is going to work in it. 
+
+On the remote server (wherever the production code is placed)there can be a single script that will run, the script will do the following:
+
+- Traverse all apps present in the `INSTALLED_APPS` list of `settings.py`. Go inside those apps 
+
