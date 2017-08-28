@@ -24,5 +24,5 @@ Here is the solution to this problem. Django Sql migrations is a super powerful 
 
 On the remote server (wherever the production code is placed)there can be a single script that will run, the script will do the following:
 
-- Traverse all apps present in the `INSTALLED_APPS` list of `settings.py`. Go inside those apps 
+Simply run Sqlmigrations on the application and everything will start working fine.
 
